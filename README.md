@@ -1,5 +1,5 @@
-# SSH Brute-Force Detection Lab
-### Red Team Simulation and Blue Team Detection
+# SSH Brute-Force Simulation Lab
+### Red Team Simulation 
 
 ![Platform](https://img.shields.io/badge/Platform-Kali%20Linux%20%7C%20Ubuntu-blue)
 ![Focus](https://img.shields.io/badge/Focus-SSH%20Security-orange)
@@ -21,12 +21,8 @@ A controlled cybersecurity lab demonstrating how SSH reconnaissance and password
 - [Phase 1 — Member 1: Reconnaissance and Environment Preparation](#phase-1--member-1-reconnaissance-and-environment-preparation)
 - [Phase 2 — Member 2: Controlled SSH Authentication Test](#phase-2--member-2-controlled-ssh-authentication-test)
 - [Phase 3 — Member 3: Attack Observation and Threat Analysis](#phase-3--member-3-attack-observation-and-threat-analysis)
-- [Blue Team Handover](#blue-team-handover)
-- [Expected Evidence and Results](#expected-evidence-and-results)
-- [Security Notes and Cleanup](#security-notes-and-cleanup)
-- [Troubleshooting](#troubleshooting)
-- [Suggested Repository Structure](#suggested-repository-structure)
-
+  
+  
 ## Project Overview
 
 SSH (Secure Shell) is commonly used to administer Linux systems remotely. A password-guessing attack attempts multiple candidate passwords against an account. Although SSH encrypts the connection, encryption does not prevent an attacker from trying weak or reused passwords.
@@ -89,8 +85,7 @@ These are examples, not guaranteed addresses. Confirm the actual addresses on yo
 |---|---|---|
 | Member 1 | Reconnaissance & Attacker Environment Preparation | Prepare tools, confirm connectivity, discover SSH, and hand over findings. |
 | Member 2 | SSH Authentication Test Specialist | Verify legitimate access, prepare a small lab-only test dictionary, and initiate the authorized authentication test. |
-| Member 3 | Attack Observation & Threat Analysis | Explain the activity, interpret logs and risks, and transition to the Blue Team. |
-| Member 4 onward | Blue Team | Detect, investigate, alert on, and respond to the generated events. |
+
 
 ---
 
@@ -316,27 +311,6 @@ Command breakdown:
 
 The output and behavior vary by Hydra version, SSH configuration, network conditions, and defensive controls. Do not assume that a particular line or timing will appear exactly as shown in a presentation.
 
-### Step 6: Coordinate with the Blue Team
-
-While the test is running, the Blue Team should observe the target's SSH authentication logs and available monitoring telemetry. Stop the test when sufficient evidence has been captured or when the lab's agreed limits are reached.
-
-The test can demonstrate:
-
-- Repeated authentication attempts.
-- Failed-login events in SSH logs.
-- Possible IDS or log-monitoring alerts.
-- How defensive controls may rate-limit or block a source.
-
-**Presenter notes:**  
-“The test generates a sequence of authentication events against a designated lab account. The Blue Team can now correlate those events with network and host telemetry to evaluate detection and response.”
-
-### Important interpretation
-
-A dictionary-based test tries candidate passwords from a list. “Brute force” is often used broadly in conversation, but a dictionary attack is specifically list-based; exhaustive brute force systematically explores a defined password space. Neither technique bypasses SSH encryption simply by making repeated login attempts.
-
-**Handover script**
-
-> “The controlled authentication test has been initiated and is generating events for the Blue Team to inspect. I will hand over to Member 3 to explain the activity, its potential impact, and the evidence defenders should look for.”
 
 ---
 
@@ -448,7 +422,6 @@ Strong passwords are important, but they are only one layer of defense. Organiza
 
 ---
 
-## Blue Team Handover
 
 The next phase should demonstrate the defensive workflow using the tools actually configured in the lab:
 
